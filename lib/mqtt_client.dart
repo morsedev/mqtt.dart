@@ -44,7 +44,7 @@ class MqttClient<E extends VirtualMqttConnection> {
    * An optional callback can be provided to be called when 
    * the connection to the mqtt broker has been lost
   */
-  Future<int> connect([onConnectionLostCallback]) {
+  Future<dynamic> connect([onConnectionLostCallback]) {
     _connack = new Completer();
     
     if (onConnectionLostCallback != null) onConnectionLost = onConnectionLostCallback;

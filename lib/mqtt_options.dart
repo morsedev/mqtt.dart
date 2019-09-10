@@ -1,7 +1,7 @@
 part of mqtt_shared;
 
 class MqttOptions {
-  static Map<String, String> optionList = {
+  static Map<String, List<String>> optionList = {
                         'mqtt_broker' :['host','port', 'user', 'password'],
                         'mqtt_options': ['debug', 'qos','clientID','cleanSession','topic', 'payload', 'keepAlive'],
                         'mqtt_will_options': ['topic','payload','qos','retain']

@@ -28,7 +28,7 @@ class MqttConnectionHtmlWebSocket extends VirtualMqttConnection{
     print("Error: $e");
   }
   
-  privateSendMessageToBroker(MqttMessage m) {
+  privateSendMessageToBroker(dynamic m) {
     print("[HTML WebSocket] SendMessage ${m.buf}");
     _ws.send(new Uint8List.fromList(m.buf));
   }

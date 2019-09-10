@@ -18,7 +18,7 @@ class MqttConnectionIOWebSocket extends VirtualMqttConnection{
     print("Error: $e");
   }
   
-  privateSendMessageToBroker(MqttMessage m) {
+  privateSendMessageToBroker(dynamic m) {
     _ws.add(m.buf);
   }
 

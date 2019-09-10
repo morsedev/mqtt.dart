@@ -62,14 +62,12 @@ abstract class MqttMessage {
   /**
    * operator ==
    */
-  bool operator == (MqttMessage other) {
-    return ( type == other.type
+  bool operator == (other) =>
+     type == other.type
           && len == other.len
           && QoS == other.QoS
           && DUP == other.DUP
-          && retain == other.retain
-    );
-  }
+          && retain == other.retain;
   /**
    * encode
    * encode a mqtt message

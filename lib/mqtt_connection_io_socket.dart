@@ -19,7 +19,7 @@ class MqttConnectionIOSocket extends VirtualMqttConnection{
     test: (e) => e is SocketException;
   }
   
-  privateSendMessageToBroker(MqttMessage m) {
+  privateSendMessageToBroker(dynamic m) {
     _socket.add(m.buf);
   }
 
