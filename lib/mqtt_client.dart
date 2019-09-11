@@ -49,7 +49,8 @@ class MqttClient<E extends VirtualMqttConnection> {
     
     if (onConnectionLostCallback != null) onConnectionLost = onConnectionLostCallback;
     
-    _mqttConnection.connect().then( (socket) => _handleConnected(socket))
+    _mqttConnection.connect()
+    .then( (socket) => _handleConnected(socket))
                     .catchError((e) => _mqttConnection.handleConnectError(e));
     
 
@@ -71,7 +72,7 @@ class MqttClient<E extends VirtualMqttConnection> {
    * subscribe
    * subscribe to topic topic with QOS level QOS
    */
-  Future<MqttMessageSuback> subscribe(String topic, int QoS, onSubscribeDataCallback, [num messageID = -1]) {
+  Future<dynamic> subscribe(String topic, int QoS, onSubscribeDataCallback, [num messageID = -1]) {
     print("Subscribe to $topic - QoS: $QoS - Message ID: $messageID");
 
     if (_onSubscribeDataMap == null)  _onSubscribeDataMap = new Map<String, Function>();
@@ -110,7 +111,7 @@ class MqttClient<E extends VirtualMqttConnection> {
    * publish 
    * publish message with payload to topic with qosLevel
    */
-  Future<MqttMessagePuback> publish(String topic, String payload, [num messageID = 1, int QoS = 0, bool retain = false]) {
+  Future<dynamic> publish(String topic, String payload, [num messageID = 1, int QoS = 0, bool retain = false]) {
     int retainFlag = (retain) ? 1 : 0;
     print("Publish $topic: $payload (ID: $messageID - QoS: $QoS - retain: $retainFlag)");
 
