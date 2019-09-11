@@ -99,7 +99,7 @@ class MqttMessageConnect extends MqttMessage {
     _buf.add(0x00);     // length MSB
     _buf.add(0x06);     // length LSB
     
-    _buf.addAll(MQTT_VERSION_IDENTIFIER.whereType());   // protocol name
+    _buf.addAll(MQTT_VERSION_IDENTIFIER as List<int>);   // protocol name
     _buf.add(MQTT_VERSION);         // protocol version
     
     // CONNECT flag
